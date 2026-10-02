@@ -7,7 +7,7 @@ Declarative, GitOps-managed configuration for my NixOS servers. One flake descri
 - **Flakes** with a committed `flake.lock`, so every host builds from exactly the same pinned nixpkgs.
 - **Pull-based GitOps**: each host runs `system.autoUpgrade` against this repo (the NixOS equivalent of Flux reconciling a cluster).
 - **Secrets** with [sops-nix](https://github.com/Mic92/sops-nix) and **post-quantum** [age](https://github.com/FiloSottile/age) keys (ML-KEM-768 + X25519). Safe to keep in a public repo; see [docs/secrets.md](./docs/secrets.md).
-- **No Nix install needed on the workstation**: deploys build on the target host over SSH. mise provides a rootless static `nix` for local `just flake …` commands (store in `~/.local/share/nix/root`, no `/nix` or daemon), with a Podman container as a fallback.
+- **No Nix install needed on the workstation**: deploys build on the target host over SSH. Local `just flake …` commands use `nix` if it is installed, otherwise they run Nix in a Podman container.
 - Dev env managed with [mise](https://mise.jdx.dev/), tasks with [just](https://just.systems/)
 - CI with [GitHub Actions](https://github.com/features/actions): formatting, `nix flake check`, a full build of every host, a closure diff on PRs, and a plaintext-secret guard
 - Dependency automation with [Renovate](https://www.mend.io/renovate) (weekly `flake.lock` maintenance, mise tools, Actions)

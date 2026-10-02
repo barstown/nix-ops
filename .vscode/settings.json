@@ -18,13 +18,8 @@
     "**/*.json5": "json5",
     "*.just": "just"
   },
-  "nix.enableLanguageServer": true,
-  "nix.serverPath": "nixd",
-  "nix.serverSettings": {
-    "nixd": {
-      "formatting": { "command": ["nixfmt"] }
-    }
-  },
+  "nix.enableLanguageServer": false,
+  "nix.formatterPath": "nixfmt",
   "redhat.telemetry.enabled": false,
   "sops.defaults.ageKeyFile": "${env:HOME}/.config/sops/age/nix-ops.txt",
   "telemetry.telemetryLevel": "off"
