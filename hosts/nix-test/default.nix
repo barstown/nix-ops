@@ -5,6 +5,11 @@
 # packages). Settings already handled by ./modules/nixos (SSH, users, nix,
 # locale) can be dropped.
 {
+  pkgs,
+  ...
+}:
+
+{
   imports = [ ./hardware-configuration.nix ];
 
   sops.defaultSopsFile = ./secrets.sops.yaml;
