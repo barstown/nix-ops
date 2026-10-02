@@ -37,8 +37,5 @@
   # --- BEGIN CUSTOM HOST CONFIGURATION ---
   virtualisation.docker.enable = true;
   users.users.kyle.extraGroups = [ "docker" ];
-  environment.systemPackages = with pkgs; [
-    kubectl
-  ];
   # --- END CUSTOM HOST CONFIGURATION ---
 }
