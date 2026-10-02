@@ -34,6 +34,9 @@
             {
               networking.hostName = hostname;
               nixpkgs.hostPlatform = system;
+              # Git commit the system was built from; shown by
+              # `nixos-version --configuration-revision` and `nixos-rebuild list-generations`.
+              system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
             }
             ./modules/nixos
             ./hosts/${hostname}
