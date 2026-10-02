@@ -31,6 +31,6 @@
 
   # --- BEGIN CUSTOM HOST CONFIGURATION ---
   virtualisation.docker.enable = true;
-  users.users.kyle.extraGroups = [ "docker" ]
+  users.users.kyle.extraGroups = [ "docker" ];
   # --- END CUSTOM HOST CONFIGURATION ---
 }
