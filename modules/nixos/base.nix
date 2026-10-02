@@ -4,6 +4,7 @@
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
   networking.firewall.enable = true;
+  networking.networkmanager.enable = lib.mkDefault true;
 
   boot.tmp.cleanOnBoot = true;
 
