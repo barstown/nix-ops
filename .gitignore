@@ -1,0 +1,14 @@
+# Secrets — private keys must never be committed
+*.key
+*.decrypted~*
+age*.txt
+keys.txt
+key.txt
+# Nix
+result
+result-*
+.direnv/
+# Misc.
+.private/
+.DS_Store
+Thumbs.db

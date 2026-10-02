@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "hverlin.mise-vscode",
+    "jnoortheen.nix-ide",
+    "nefrob.vscode-just-syntax",
+    "redhat.vscode-yaml",
+    "signageos.signageos-vscode-sops",
+    "tamasfe.even-better-toml"
+  ]
+}

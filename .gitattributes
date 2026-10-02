@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.json linguist-detectable linguist-language=JSON
+*.json5 linguist-detectable linguist-language=JSON5
+*.just linguist-detectable linguist-language=Just
+*.md linguist-detectable linguist-language=MARKDOWN
+*.nix linguist-detectable linguist-language=Nix
+*.sh linguist-detectable linguist-language=SHELL
+*.toml linguist-detectable linguist-language=TOML
+*.yaml linguist-detectable linguist-language=YAML
+flake.lock linguist-generated=true -diff
+*.sops.* diff=sopsdiffer

@@ -1,0 +1,31 @@
+{
+  "[json5]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true
+  },
+  "[nix]": {
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "**/*.json5": "json5",
+    "*.just": "just"
+  },
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": { "command": ["nixfmt"] }
+    }
+  },
+  "redhat.telemetry.enabled": false,
+  "sops.defaults.ageKeyFile": "${env:HOME}/.config/sops/age/nix-ops.txt",
+  "telemetry.telemetryLevel": "off"
+}

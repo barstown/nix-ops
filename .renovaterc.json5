@@ -1,0 +1,77 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":automergeBranch",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":semanticCommits"
+  ],
+  configMigration: false,
+  dependencyDashboard: true,
+  ignorePaths: ["**/*.sops.*"],
+  // The nix manager is opt-in. It needs `nix` available to Renovate (the hosted
+  // Mend app and the renovate:full image both provide it).
+  nix: {
+    enabled: true
+  },
+  // Weekly `nix flake update`: this is how nixpkgs security fixes reach the
+  // hosts. Once you trust CI, set automerge to true for hands-off GitOps.
+  lockFileMaintenance: {
+    enabled: true,
+    automerge: false,
+    schedule: ["before 6am on monday"],
+    commitMessageTopic: "flake.lock"
+  },
+  packageRules: [
+    {
+      description: "Auto-merge GitHub Actions",
+      matchManagers: ["github-actions"],
+      automerge: true,
+      automergeType: "branch",
+      matchUpdateTypes: ["minor", "patch", "digest"],
+      minimumReleaseAge: "3 days",
+      ignoreTests: true
+    },
+    {
+      matchManagers: ["mise"],
+      semanticCommitScope: "mise",
+      commitMessageTopic: "tool {{depName}}"
+    },
+    {
+      matchManagers: ["nix"],
+      semanticCommitScope: "flake",
+      addLabels: ["renovate/nix"]
+    },
+    {
+      matchUpdateTypes: ["lockFileMaintenance"],
+      semanticCommitScope: "flake",
+      labels: ["renovate/nix", "type/lockfile"]
+    },
+    {
+      matchUpdateTypes: ["major"],
+      labels: ["type/major"]
+    },
+    {
+      matchUpdateTypes: ["minor"],
+      labels: ["type/minor"]
+    },
+    {
+      matchUpdateTypes: ["patch"],
+      labels: ["type/patch"]
+    },
+    {
+      matchUpdateTypes: ["digest"],
+      labels: ["type/digest"]
+    },
+    {
+      matchManagers: ["github-actions"],
+      addLabels: ["renovate/github-action"]
+    },
+    {
+      matchDatasources: ["github-releases"],
+      addLabels: ["renovate/github-release"]
+    }
+  ]
+}
