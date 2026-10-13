@@ -19,6 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   ops.gitops.enable = true;
+  ops.gitops.allowReboot = true;
 
   # Example of consuming a secret: the plaintext lands at
   # config.sops.secrets."example/api-token".path (/run/secrets/example/api-token)
